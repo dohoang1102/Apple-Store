@@ -1,14 +1,14 @@
 //
-//  AppDelegate.h
-//  Apple-Store
+//  HelloTabBarAppDelegate.h
+//  HelloTabBar
 //
-//  Created by Yuval Marcus on 4/22/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Alex Muller on 6/14/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface HelloTabBarAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

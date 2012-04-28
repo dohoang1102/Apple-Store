@@ -1,9 +1,9 @@
 //
 //  SecondViewController.m
-//  Apple-Store
+//  HelloTabBar
 //
-//  Created by Yuval Marcus on 4/22/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Alex Muller on 6/14/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import "SecondViewController.h"
@@ -11,78 +11,69 @@
 #import "Product.h"
 #import "AppleStore.h"
 
-#pragma mark - View lifecycle
-
 @implementation SecondViewController
-@synthesize myAppleStore;
-@synthesize detailViewController = _detailViewController;
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+@synthesize dummyArray;
+
+- (void)didReceiveMemoryWarning
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.myAppleStore = [[AppleStore alloc] init];
-    }
-    return self;
+    [super didReceiveMemoryWarning];
+    // Release any cached data, images, etc that aren't in use.
 }
 
+#pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
+    [self setupArray];
     [super viewDidLoad];
 }
 
+- (void)setupArray {
+    dummyArray = [[NSMutableArray alloc] init];
+    [dummyArray addObject:@"iPhone"];
+    [dummyArray addObject:@"iPad"];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView 
- numberOfRowsInSection:(NSInteger)section
-{
-    return self.myAppleStore.count;
-    
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [dummyArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
-    DetailViewController *detail = [self.storyboard instantiateViewControllerWithIdentifier:@"Detail"];
-    [self.navigationController pushViewController:detail animated:YES];
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-
-
-    cell.textLabel.text = [self.myAppleStore productatIndex:indexPath.row].title;
-
-
-    return cell;
-
+    
+    cell.textLabel.text = [dummyArray objectAtIndex:indexPath.row];
+    
+    return cell;    
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    Product *selectedProduct = [self.myAppleStore productatIndex:indexPath.row];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *__strong)indexPath {
+    DetailViewController *detail = [self.storyboard instantiateViewControllerWithIdentifier:@"Detail"];
+    [self.navigationController pushViewController:detail animated:YES];
     
-    if (!self.modalViewController) {
-        self.modalViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
-    }
-    self.modalViewController.detailItem = selectedProduct;
-    [self.navigationController pushViewController:self.modalViewController animated:YES];
+    
 }
 
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
+
+
 
 @end

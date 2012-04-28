@@ -1,19 +1,18 @@
 //
 //  SecondViewController.h
-//  Apple-Store
+//  HelloTabBar
 //
-//  Created by Yuval Marcus on 4/22/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Alex Muller on 6/14/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@class AppleStore;
-@class DetailViewController;
-
 @interface SecondViewController : UIViewController
 
-@property (strong, nonatomic) DetailViewController *detailViewController;
-@property (strong, nonatomic) AppleStore *myAppleStore;
+@property (nonatomic, strong) NSMutableArray *dummyArray;
+
+
+- (void) setupArray;
 
 @end

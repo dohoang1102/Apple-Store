@@ -266,7 +266,7 @@
 		9DA322DC1544E778000858F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Apple-Store/Apple-Store-Prefix.pch";
 				INFOPLIST_FILE = "Apple-Store/Apple-Store-Info.plist";
@@ -278,7 +278,7 @@
 		9DA322DD1544E778000858F0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Apple-Store/Apple-Store-Prefix.pch";
 				INFOPLIST_FILE = "Apple-Store/Apple-Store-Info.plist";

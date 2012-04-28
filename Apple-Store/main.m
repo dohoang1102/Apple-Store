@@ -1,9 +1,9 @@
 //
 //  main.m
-//  Apple-Store
+//  HelloTabBar
 //
-//  Created by Yuval Marcus on 4/22/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Alex Muller on 6/14/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -12,7 +12,9 @@
 
 int main(int argc, char *argv[])
 {
+    int retVal = 0;
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+        retVal = UIApplicationMain(argc, argv, nil, NSStringFromClass([HelloTabBarAppDelegate class]));
     }
+    return retVal;
 }

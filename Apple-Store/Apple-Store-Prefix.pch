@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'Apple-Store' target in the 'Apple-Store' project
+// Prefix header for all source files of the 'HelloTabBar' target in the 'HelloTabBar' project
 //
 
 #import <Availability.h>

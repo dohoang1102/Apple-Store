@@ -5,13 +5,17 @@
 //  Created by Alex Muller on 6/14/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
-
 #import "DetailViewController.h"
 #import "Product.h"
 
+@interface DetailViewController ()
+- (void)configureView;
+@end
+
+
 @implementation DetailViewController
+@synthesize priceLabel, nameLabel;
 @synthesize detailItem = _detailItem;
-@synthesize titleLabel, priceLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,7 +36,6 @@
 
 #pragma mark - View lifecycle
 
-
 - (void)setDetailItem:(id)newDetailItem
 {
     if (_detailItem != newDetailItem) {
@@ -43,16 +46,38 @@
     }
 }
 
+
 - (void)configureView
 {
     // Update the user interface for the detail item.
     
     if (self.detailItem) {
         Product *theProduct = (Product *)self.detailItem;
-        self.titleLabel.text = theProduct.title;
+        self.nameLabel.text = theProduct.title;
         self.priceLabel.text = theProduct.price;
     }
 }
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+    [self configureView];
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+
 
 /*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
@@ -69,17 +94,5 @@
 }
 */
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
 
 @end
